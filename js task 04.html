@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE Javascript Task 04</title>
+	<style type="text/css">
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		padding: 20px;
+	}
+	ul li{
+		float: left;
+		background: red;
+		margin: 8px;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		list-style: none;
+		font-weight: bold;
+	}
+	</style>
+</head>
+<body>
+<!-- 	任务描述:
+	如图，模拟一个队列，队列的每个元素是一个数字，初始队列为空
+	有一个input输入框，以及4个操作按钮
+		点击"左侧入"，将input中输入的数字从左侧插入队列中；
+		点击"右侧入"，将input中输入的数字从右侧插入队列中；
+		点击"左侧出"，读取并删除队列左侧第一个元素，并弹窗显示元素中数值；
+		点击"右侧出"，读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
+	点击队列中任何一个元素，则该元素会被从队列中删除
+	任务注意事项:
+	实现简单功能的同时，请仔细学习JavaScript基本语法、事件、DOM相关的知识
+	请注意代码风格的整齐、优雅
+	代码中含有必要的注释
+	 -->
+
+	
+	 	<input type="text" id="iput">
+	 	<button id="left-in">左侧入</button>
+	 	<button id="right-in">右侧入</button>
+	 	<button id="left-out">左侧出</button>
+	 	<button id="right-out">右侧出</button>
+
+	 <ul id="output">
+	 <!-- 	<li>12</li>
+	 	<li>5</li>
+	 	<li>31</li>
+	 	<li>23</li>
+	 	<li>8</li> -->
+	 </ul>
+	<script type="text/javascript">
+	
+	var number=document.getElementById("iput");
+	var leftIn=document.getElementById("left-in");
+	var rightIn=document.getElementById("right-in");
+	var leftOut=document.getElementById("left-out");
+	var rightOut=document.getElementById("right-out");
+	var output=document.getElementById("output");	
+	
+
+	//插入
+		function insert(direction){
+			if(number.value===""){
+				alert("请输入数字");
+			}else{
+			var li=document.createElement("li");
+			li.innerHTML=number.value;
+			if(direction==="left"){
+				output.insertBefore(li,output.firstChild);//将生成的li元素从左方放入
+				number.focus();
+			}else if(direction==="right"){
+				output.appendChild(li);//将生成的li元素从右方放入
+				number.focus();
+			}
+			}
+		}
+
+	//删除
+	 function del(node,direction){
+            if(output.childNodes.length<=0){
+                alert("不存在元素可以删除");
+                return false;
+            } else{
+                if(direction === "left"){  //点击左侧按钮删除
+                    alert("删除数字：" +output.firstChild.innerText +"！");
+                    output.removeChild(output.firstChild);
+                } else if(direction === "right"){  //点击右侧按钮删除
+                    alert("删除数字：" +output.lastChild.innerText +"！");
+                    output.removeChild(output.lastChild);
+                } 
+            }
+        }
+	//点击按钮
+	leftIn.onclick=function(){
+		insert("left");
+	};
+	rightIn.onclick=function(){
+		insert("right");
+	};
+	leftOut.onclick=function(){
+		del(-1,"left");
+	};
+	rightOut.onclick=function(){
+		del(-1,"right");
+	};
+
+
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>

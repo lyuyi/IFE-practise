@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+      <li>第二名：福州（样例），10</li> -->
+  </ul>
+<!-- 参考以下示例代码，页面加载后，将提供的空气质量数据数组，按照某种逻辑（比如空气质量大于60）进行过滤筛选，最后将符合条件的数据按照一定的格式要求显示在网页上 -->
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+
+(function () {
+
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+ // 多维数组:其中行数即是父数组的长度:test.length,列数则是其中任意一个子数组的长度test[0].length
+ // aqiData[0]对应第一排["北京", 90]
+ // aqiData[1]对应第二排["上海", 50]
+ // .....
+ // aqiData[0][0]对应第一排中的第一个
+ // aqiData[0][1]对应第一排中的第二个
+ // aqiData[1][0]对应第二排中的第一个
+  var arr=[];
+  var list=document.getElementById("aqi-list");
+  var j=0;
+  
+  // 获取分数大于60的数组
+  for(var i=0;i<aqiData.length;i++){
+    if (aqiData[i][1]>=60) {
+      arr[j]=aqiData[i];//将筛选出来的结果存到arr数组中，如["北京", 90]。
+      j++;
+    }
+  }
+
+  // 排序 升序
+  arr.sort(function(a,b){
+    return a-b;// 解释：a,b表示数组中的任意两个元素，若return > 0 b前a后；reutrn < 0 a前b后；a=b时存在浏览器兼容.. 简化一下：a-b输出从小到大排序，b-a输出从大到小排序
+  });
+
+  //降序
+  arr.reverse();
+
+   // 输出已排序数组
+  for(var m=0;m<arr.length;m++){
+    var li=document.createElement("li");
+    li.innerHTML="第"+(m+1)+"名："+arr[m][0]+","+arr[m][1];
+    list.appendChild(li);
+  }
+
+})();
+
+</script>
+</body>
+</html>

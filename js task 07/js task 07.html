@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE JavaScript Task 07</title>
+	<style type="text/css">
+		.btl{
+			height: 500px;
+			width: 800px;
+			border: 1px solid blue;
+			margin: 0 auto;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+		.second{
+			margin: 40px 24px;
+			border: 1px solid blue;
+			width: 350px;
+			height: 420px;
+			overflow: hidden;
+			float: left;
+		}
+		.thir{
+			width: 140px;
+		    height: 270px;
+		    border: 1px solid #3355d0;
+		    margin: 65px 0px 25px 22px;
+		    overflow: hidden;
+		    float: left;
+		}
+		.four{
+			width: 50px;
+		    height: 100px;
+		    border: 1px solid #3355d0;
+		    margin: 75px 0px 75px 12px;
+		    overflow: hidden;
+		    float: left;
+		}
+		#control{
+			margin: 30px auto;
+			width: 300px;
+			height: 50px;
+		}
+		#control button{
+			cursor: pointer;
+			margin: 8px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 任务描述
+	参考示例图，在页面中展现一颗二叉树的结构
+	提供一个按钮，显示开始遍历，点击后，以动画的形式呈现遍历的过程
+	二叉树的遍历算法和方式自定，前序中序后序皆可，但推荐可以提供多种算法的展示（增加多个按钮，每个按钮对应不同的算法）
+	当前被遍历到的节点做一个特殊显示（比如不同的颜色）
+	每隔一段时间（500ms，1s等时间自定）再遍历下一个节点
+	任务注意事项
+	如果按照示例图中展示树，可以使用flexbox布局
+	 -->
+	 <div id="root" class="btl">
+	 	<div class="second">
+	 		<div class="thir">
+	 			<div class="four">
+	 				
+	 			</div>
+	 			<div class="four">
+	 				
+	 			</div>
+	 		</div>
+	 		<dic class="thir">
+	 			<div class="four">
+	 				
+	 			</div>
+	 			<div class="four">
+	 				
+	 			</div>
+	 		</dic>
+	 	</div>
+	 	<div class="second">
+	 		<div class="thir">
+	 			<div class="four">
+	 				
+	 			</div>
+	 			<div class="four">
+	 				
+	 			</div>
+	 		</div>
+	 		<dic class="thir">
+	 			<div class="four">
+	 				
+	 			</div>
+	 			<div class="four">
+	 				
+	 			</div>
+	 		</dic>
+	 	</div>
+	 </div>
+	<div id="control">
+	 	<button id="preOrder">前序遍历</button>
+		<button id="inOrder">中序遍历</button>
+		<button id="postOrder">后序遍历</button>
+	</div>
+	
+	<script type="text/javascript" src="JS 07.JS"></script>
+
+</body>
+</html>
+
